@@ -13,4 +13,24 @@ const plus = document.querySelector("#plus");
 const minus = document.querySelector("#minus");
 const divide = document.querySelector("#divide");
 const multiply = document.querySelector("#multiply");
-const multiply = document.querySelector("#equal");
+const equal = document.querySelector("#equal");
+
+function writeNumbers(e) {
+    //console.log(e.target.innerText);
+    input.value = e.target.innerText;
+}
+
+one.onclick = writeNumbers;
+two.onclick = writeNumbers;
+tree.onclick = writeNumbers;
+four.onclick = writeNumbers;
+five.onclick = writeNumbers;
+six.onclick = writeNumbers;
+seven.onclick = writeNumbers;
+eight.onclick = writeNumbers;
+nine.onclick = writeNumbers;
+zero.onclick = writeNumbers;
+plus.onclick = writeNumbers;
+minus.onclick = writeNumbers;
+divide.onclick = writeNumbers;
+multiply.onclick = writeNumbers;
