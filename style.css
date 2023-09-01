@@ -1,0 +1,14 @@
+div {
+    width:180px;
+    background: gainsboro;
+    padding-left: 5px;
+}
+
+div button {
+}
+
+button {
+    padding:5px;
+    width:50px;
+    height:50px;
+}
