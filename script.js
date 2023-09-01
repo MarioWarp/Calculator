@@ -19,9 +19,20 @@ const multiply = document.querySelector("#multiply");
 const equal = document.querySelector("#equal");
 
 function writeNumbers(e) {
-    console.dir(typeof(e.target));
-    input.value += e.target.innerText;
+    //console.dir(typeof(e.target));
+    console.log(e);
+  
+        input1.value += e.target.innerText;
+  
+    
 }
+
+function writeNumbers2(e) {
+    //console.dir(typeof(e.target));
+    console.log(e.target.blur);
+    input2.value += e.target.innerText;
+}
+
 
 function calculate() {
     console.log(input.value);
@@ -43,3 +54,11 @@ divide.onclick = writeNumbers;
 multiply.onclick = writeNumbers;
 
 equal.onclick = calculate;
+
+// input1.onkeyup = function(e) {
+//     console.log(e.key);
+// }
+
+// input2.onkeyup = function(e) {
+//     console.log(e.key);
+// }
