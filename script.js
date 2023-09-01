@@ -1,4 +1,7 @@
-const input = document.querySelector("input");
+const input1 = document.querySelector("#num1");
+const calc = document.querySelector("#calc");
+const input2 = document.querySelector("#num2");
+
 const one = document.querySelector("#one");
 const two = document.querySelector("#two");
 const tree = document.querySelector("#tree");
@@ -16,8 +19,12 @@ const multiply = document.querySelector("#multiply");
 const equal = document.querySelector("#equal");
 
 function writeNumbers(e) {
-    //console.log(e.target.innerText);
-    input.value = e.target.innerText;
+    console.dir(typeof(e.target));
+    input.value += e.target.innerText;
+}
+
+function calculate() {
+    console.log(input.value);
 }
 
 one.onclick = writeNumbers;
@@ -34,3 +41,5 @@ plus.onclick = writeNumbers;
 minus.onclick = writeNumbers;
 divide.onclick = writeNumbers;
 multiply.onclick = writeNumbers;
+
+equal.onclick = calculate;
