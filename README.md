@@ -1,1 +1,1 @@
-Calculatir App
+Calculator App
