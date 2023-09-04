@@ -3,20 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <title>Document</title>
+    <title>Calculator</title>
 </head>
 <body>
 
     <div>
-        <input type="number" id="num1"> 
-        <select name="calc" id="calc">
-            <option value="plus">+</option>
-            <option value="minus">-</option>
-            <option value="divide">/</option>
-            <option value="multiply">*</option>
-        </select>
-        <input type="number" id="num2"> <br>
+        <input type="text" id="num1" disabled> 
+        <br>
 
         <button id="one">1</button>
         <button id="two">2</button>
@@ -35,7 +32,10 @@
         <button id="minus">-</button> <br>
 
         <button id="divide">/</button> 
-        <button id="multiply">X</button> 
+        <button id="multiply">X</button>
+        <button id="deleteAll">C</button>  
+
+        <br>
         <button id="equal">=</button> 
 
     </div>

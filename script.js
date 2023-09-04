@@ -1,6 +1,5 @@
-const input1 = document.querySelector("#num1");
-const calc = document.querySelector("#calc");
-const input2 = document.querySelector("#num2");
+// 
+const input = document.querySelector("#num1");
 
 const one = document.querySelector("#one");
 const two = document.querySelector("#two");
@@ -16,49 +15,94 @@ const plus = document.querySelector("#plus");
 const minus = document.querySelector("#minus");
 const divide = document.querySelector("#divide");
 const multiply = document.querySelector("#multiply");
+const deleteAll = document.querySelector("#deleteAll");
 const equal = document.querySelector("#equal");
 
+let firstNumber = null;
+let operation = null;
+let secondNumber = null;
+let result = null;
+
 function writeNumbers(e) {
-    //console.dir(typeof(e.target));
-    console.log(e);
-  
-        input1.value += e.target.innerText;
-  
-    
-}
+  if (!operation) {
+    if (firstNumber === null) {
+      firstNumber = e.target.innerText;
+    } else {
+      firstNumber += e.target.innerText;
+    }
+  } else {
+    if (secondNumber === null) {
+      secondNumber = e.target.innerText;
+    } else {
+      secondNumber += e.target.innerText;
+    }
+  }
 
-function writeNumbers2(e) {
-    //console.dir(typeof(e.target));
-    console.log(e.target.blur);
-    input2.value += e.target.innerText;
+  input.value += e.target.innerText;
 }
-
 
 function calculate() {
-    console.log(input.value);
+  if (firstNumber !== null && secondNumber !== null && operation !== null) {
+    firstNumber = parseFloat(firstNumber);
+    secondNumber = parseFloat(secondNumber);
+
+    switch (operation) {
+      case "+":
+        result = firstNumber + secondNumber;
+        break;
+      case "-":
+        result = firstNumber - secondNumber;
+        break;
+      case "*":
+        result = firstNumber * secondNumber;
+        break;
+      case "/":
+        if (secondNumber === 0) {
+          alert("Dijeljenje s nulom nije dopušteno");
+          clearAll();
+          return;
+        } else {
+          result = firstNumber / secondNumber;
+        }
+        break;
+    }
+
+    input.value = result;
+  }
 }
 
-one.onclick = writeNumbers;
-two.onclick = writeNumbers;
-tree.onclick = writeNumbers;
-four.onclick = writeNumbers;
-five.onclick = writeNumbers;
-six.onclick = writeNumbers;
-seven.onclick = writeNumbers;
-eight.onclick = writeNumbers;
-nine.onclick = writeNumbers;
-zero.onclick = writeNumbers;
-plus.onclick = writeNumbers;
-minus.onclick = writeNumbers;
-divide.onclick = writeNumbers;
-multiply.onclick = writeNumbers;
 
-equal.onclick = calculate;
+function clearAll() {
+  firstNumber = null;
+  operation = null;
+  secondNumber = null;
+  result = null;
+  input.value = "";
+}
 
-// input1.onkeyup = function(e) {
-//     console.log(e.key);
-// }
+deleteAll.onclick = function() {
+    clearAll();
+}
 
-// input2.onkeyup = function(e) {
-//     console.log(e.key);
-// }
+one.addEventListener("click", writeNumbers);
+two.addEventListener("click", writeNumbers);
+tree.addEventListener("click", writeNumbers);
+four.addEventListener("click", writeNumbers);
+five.addEventListener("click", writeNumbers);
+six.addEventListener("click", writeNumbers);
+seven.addEventListener("click", writeNumbers);
+eight.addEventListener("click", writeNumbers);
+nine.addEventListener("click", writeNumbers);
+zero.addEventListener("click", writeNumbers);
+plus.addEventListener("click", () => setOperation("+"));
+minus.addEventListener("click", () => setOperation("-"));
+divide.addEventListener("click", () => setOperation("/"));
+multiply.addEventListener("click", () => setOperation("*"));
+equal.addEventListener("click", calculate);
+
+function setOperation(op) {
+  if (firstNumber !== null && secondNumber === null) {
+    operation = op;
+    input.value += op;
+  }
+}
